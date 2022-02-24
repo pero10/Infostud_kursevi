@@ -3,7 +3,8 @@ require_once "dbh.classes.php";
 
 class Login extends Database{
 
-    protected function getUser($uid, $pwd){
+    protected function getUser(int $uid,string $pwd)
+    {
         $stmt = $this->connect()->prepare("SELECT users_pwrd FROM users WHERE users_uid - ? OR users_email = ?;");
 
         if(!$stmt->execute(array($uid, $pwd))){
@@ -12,7 +13,8 @@ class Login extends Database{
             exit();
         }
 
-        if($stmt->rowCount() > 0){
+        if($stmt->rowCount() > 0)
+        {
             $stmt = null;
             header("Location: ../index.php?error=usernotfound");
             exit();

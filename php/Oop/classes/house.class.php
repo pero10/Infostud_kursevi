@@ -1,15 +1,16 @@
 <?php
 
 class House{
-    public $streetName;
-    public $streetNr;
+    public string $streetName;
+    public int $streetNr;
 
-    public function __construct($streetName, $streetNr){
+    public function __construct(string $streetName, int $streetNr){
         $this->streetName = $streetName;
         $this->streetNr = $streetNr;
     }
 
-    public function getAddress(){
+    public function getAddress(): string
+    {
         return $this->streetName . " " . $this->streetNr;
     }
 }

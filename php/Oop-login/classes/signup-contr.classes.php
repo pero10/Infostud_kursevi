@@ -3,19 +3,20 @@ require_once "signup.classes.php";
 
 class SignupContr extends Signup {
 
-    private $uid;
-    private $pwd;
-    private $pwdRepeat;
-    private $email;
+    private int $userId;
+    private string $password;
+    private string $pwdRepeat;
+    private string $email;
 
-    public function __construct($uid, $pwd, $pwdRepeat, $email){
-        $this->uid = $uid;
-        $this->pwd = $pwd;
+    public function __construct(int $uid,string $pwd,string $pwdRepeat,string $email){
+        $this->userId = $uid;
+        $this->password = $pwd;
         $this->pwdRepeat = $pwdRepeat;
         $this->email = $email;
     }
 
-    public function signUpUser(){
+    public function signUpUser()
+    {
         if($this->emptyInput() == false){
             // echo "Empty input!"
             header("location: ../index.php?error=emptyinput");
@@ -42,13 +43,13 @@ class SignupContr extends Signup {
             exit();
         }
 
-        $this->setUser($this->uid, $this->pwd, $this->email);
+        $this->setUser($this->userId, $this->password, $this->email);
 
     }
 
     private function emptyInput(): bool
     {
-        if(empty($this->uid) || empty($this->pwd) || empty($this->pwdRepeat) || empty($this->email)){
+        if(empty($this->userId) || empty($this->password) || empty($this->pwdRepeat) || empty($this->email)){
             $result = false;
         }
         else{
@@ -59,7 +60,7 @@ class SignupContr extends Signup {
 
     private function invalidUid(): bool
     {
-        if(!preg_match("/^[a-zA-Z0-9]*$/", $this->uid)){
+        if(!preg_match("/^[a-zA-Z0-9]*$/", $this->userId)){
             $result = false;
         }else{
             $result = true;
@@ -79,7 +80,7 @@ class SignupContr extends Signup {
 
     private function pwdMatch(): bool
     {
-        if($this->pwd !== $this->pwdRepeat){
+        if($this->password !== $this->pwdRepeat){
             $result = false;
         }
         else{
@@ -90,7 +91,7 @@ class SignupContr extends Signup {
 
     private function uidTakenCheck(): bool
     {
-        if($this->checkUser($this->uid, $this->email)){
+        if($this->checkUser($this->userId, $this->email)){
             $result = true;
         }
         else{

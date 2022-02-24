@@ -6,7 +6,8 @@ include_once "paymentTypes.class.php";
 //potrebna da se pristupi direktno nego cemo jedino pristupati toj klasi
 //preko neke druge klase
 
-class BuyProduct extends Visa{
+class BuyProduct extends Visa
+{
 
     //Ako klasa nasledjuje abstraktnu klasu onda mora da ima metode koje ima ta abstraktna klasa
     public function getPayment(): string

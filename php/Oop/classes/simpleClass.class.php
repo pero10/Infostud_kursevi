@@ -1,7 +1,8 @@
 <?php
 
 class SimpleClass{
-    public function helloWorld(){
+    public function helloWorld()
+    {
         echo "Hello World!";
     }
 }

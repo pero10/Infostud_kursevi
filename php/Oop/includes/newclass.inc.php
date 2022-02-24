@@ -6,14 +6,15 @@ class NewClass{
     //public $info = "This is some info";
 
     //video 7
-     public $data = "I am a property";
+     public string $data = "I am a property";
 
      public function __construct()
      {
          echo "This class has been instantiated <br>";
      }
 
-     public function setNewProperty($newdata){
+     public function setNewProperty(string $newdata)
+     {
          $this->data = $newdata;
      }
 

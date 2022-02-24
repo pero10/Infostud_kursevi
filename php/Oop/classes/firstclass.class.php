@@ -8,9 +8,9 @@ class FirstClass{
     const EXAMPLE = "You can't change this!";
 
     //Methods
-    public static function test(){
-        $testing = "This is a test!";
-        return $testing;
+    public static function test(): string
+    {
+        return "This is a test!";
     }
 }
 

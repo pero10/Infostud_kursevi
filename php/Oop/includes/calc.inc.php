@@ -8,7 +8,7 @@
     $num2 = $_POST['num2'];
     $oper = $_POST['oper'];
 
-    $object = new Calc($oper, (int)$num1, (int)$num2);
+    $object = new Calculator($oper, (int)$num1, (int)$num2);
 
     try{
         echo $object->calculator();

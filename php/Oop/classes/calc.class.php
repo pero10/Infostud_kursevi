@@ -1,19 +1,21 @@
 <?php
 
-class Calc{
+class Calculator{
 
-    public $operator;
-    public $num1;
-    public $num2;
+    public string $operator;
+    public int $num1;
+    public int $num2;
 
-    public function __construct(string $operator, int $num1, int $num2){
+    public function __construct(string $operator, int $num1, int $num2)
+    {
         $this->operator = $operator;
         $this->num1 = $num1;
         $this->num2 = $num2;
     }
 
-    public function calculator(){
-        switch ($this->operator){
+    public function calculator()
+    {
+        switch ($this->operator) {
             case 'add':
                 return $this->num1 + $this->num2;
                 break;
